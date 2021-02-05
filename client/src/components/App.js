@@ -1,11 +1,13 @@
-import React from "react";
+import React, {Component} from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-
-import "./App.css";
+import "../styles/App.css";
 import AnimatedCursor from "./AnimatedCursor";
 import Navbar from "./Navbar";
+import Bulma from 'bulma/css/bulma.min.css'
+import {connect} from 'react-redux'
+import * as actions from '../actions'
 
-const Landing = () => <div></div>;
+const Landing = () => <div> HALLO</div>;
 const Dashboard = () => (
   <div>
     <h2>Dashboard</h2>
@@ -17,19 +19,18 @@ const ding = () => (
   </div>
 );
 
-function App() {
-  return (
-    <div>
-      <Navbar />
-      <AnimatedCursor />
+class App extends Component {
+  componentDidMount(){
+    this.props.fetchUser();
+  }
+  
 
-      <div className="mainApp">
-        <div className="overlay">
-          <div className="thyme">
-            <h1>Thyme.</h1>
-            <p className="slogan">Your meeting place ? Sorted !</p>
-          </div>
-
+  render(){
+    return (
+      <div>
+        <Navbar />
+        <AnimatedCursor />
+        <div className="container">
           <BrowserRouter>
             <div>
               <Route exact={true} path="/" component={Landing}></Route>
@@ -39,11 +40,12 @@ function App() {
           </BrowserRouter>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  
 }
 
-export default App;
+export default connect(null, actions)(App);
 
 /*
 
@@ -57,5 +59,8 @@ present inside the /surveys (a substring) and hence it shows Landing component t
 which is undesirable
 * We can just type only the exact keyword without having to mention = {true}, React
 automatically sets the default value as true
+
+#Connect function
+* Connect function gives the component the power to call action creators
 
 */

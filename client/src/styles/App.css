@@ -1,5 +1,7 @@
 .mainApp {
   background-image: url("../assets/landing.jpg");
+  background-attachment: fixed;
+
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -7,8 +9,36 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+.dark-mode{
+  background-attachment: fixed;
+  background-color:rgb(32,29,30);
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.day-mode{
+  background-color: "#FBFCFF";
+}
+
+.cafe-icon{
+  position: relative;
+  left: 60%;
+  height: 50%;
+  transition: transform .2s;
+}
+.cafe-icon:hover{
+  transform: scale(1.02);
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   width: 100vw;
   height: 100vh;
   background-position: center center;
@@ -19,7 +49,7 @@
   font-family: 'Pacifico';
   color: whitesmoke;
   font-size: 100px;
-  position: relative;
+  position: absolute;
   left: 20%;
   top: 35%;
   -webkit-user-select:none
@@ -44,3 +74,5 @@
   -webkit-user-select:none
 
 }
+
+

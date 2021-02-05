@@ -4,8 +4,9 @@ import App from "./components/App";
 import reducer from "./reducers";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import reduxThunk from 'redux-thunk'
 
-const store = createStore(reducer, {}, applyMiddleware());
+const store = createStore(reducer, {}, applyMiddleware(reduxThunk));
 
 /*
 here first arguement is the reducer which takes care of the states through store, second

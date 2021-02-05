@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux'
 
 class Navbar extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class Navbar extends React.Component {
       >
         <div className="navbar-brand">
           <a className="navbar-item" href="localhost:3000/">
-            <h3 className="websiteFont">Thyme.</h3>
+            <h3 className="websiteFont">JustExpress !</h3>
           </a>
 
           <a
@@ -58,4 +59,8 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+mapStateToProps = (state) =>{
+  return {auth : state.auth}
+}
+
+export default connect(mapStateToProps) (Navbar);
